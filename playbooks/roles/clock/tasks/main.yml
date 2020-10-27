@@ -1,0 +1,13 @@
+---
+- name: disable alarm vibration
+  ini_file:
+    path: /usr/share/ngfd/events.d/clock.ini
+    section: "%define default"
+    option: "{{ item.name }}"
+    value: "{{ item.value }}"
+    mode: '0644'
+    backup: yes
+  notify: restart ngfd
+  loop:
+    - { name: 'haptic.type', value: 'touch' }
+    - { name: 'haptic.effect', value: 'short' }

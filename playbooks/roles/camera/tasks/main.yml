@@ -1,0 +1,44 @@
+---
+- name: copy advanced camera binary
+  copy:
+    src: /usr/bin/harbour-advanced-camera
+    dest: /usr/bin/harbour-advanced-camera-lockscreen  
+    remote_src: yes
+
+- name: copy advanced camera files
+  copy:
+    src: /usr/share/harbour-advanced-camera/
+    dest: /usr/share/harbour-advanced-camera-lockscreen
+    remote_src: yes
+
+- name: copy advanced camera desktop file
+  copy:
+    src: /usr/share/applications/harbour-advanced-camera.desktop
+    dest: /usr/share/applications/harbour-advanced-camera-lockscreen.desktop
+    remote_src: yes
+    force: no
+
+- name: adjust advanced camera desktop file
+  ini_file:
+    path: /usr/share/applications/harbour-advanced-camera-lockscreen.desktop  
+    section: "Desktop Entry"
+    option: "{{ item.name }}"
+    value: "{{ item.value }}"
+    mode: '0644'
+    backup: yes
+    no_extra_spaces: yes
+  notify: restart lipstick
+  loop:
+    - { name: 'Exec', value: 'harbour-advanced-camera-lockscreen' }
+    - { name: 'NoDisplay', value: 'true' }
+
+- name: set jolla camera lockscreen
+  ini_file:
+    path: /usr/share/applications/jolla-camera-lockscreen.desktop
+    section: "Desktop Entry"
+    option: "Exec"
+    value: "invoker -s --type=silica-media,silica-qt5 /usr/bin/harbour-advanced-camera-lockscreen"
+    mode: '0644'
+    backup: yes
+    no_extra_spaces: yes
+  notify: restart lipstick

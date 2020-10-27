@@ -1,0 +1,3 @@
+---
+- name: restart lipstick
+  command: systemctl-user restart lipstick

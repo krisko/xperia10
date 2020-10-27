@@ -1,0 +1,44 @@
+---
+ansible_user: "nemo"
+ansible_python_interpreter: "/usr/bin/python3"
+
+ipv4_krisko: 192.168.1.12
+ipv4_vpn: 10.8.0.6
+
+#ansible_ssh_pass: "zoomcallrec"
+#
+#
+#ansible_abspath: "{{ playbook_dir | dirname }}"
+#
+#pki_dir_private: "/etc/pki/tls/private"
+#
+#pki_dir_certs: "/etc/pki/tls/certs"
+#
+#rke_ssh_key: "/root/.ssh/id_rsa_rke"
+#
+#rancher_fqdn: "rancher.web.ui"
+#
+#rancher_url: "https://{{ rancher_fqdn }}:10443"
+#
+#httpd_url: "https://{{ ansible_fqdn }}:8443"
+#
+#rke_config: "/opt/zoomint/kubernetes/cluster.yml"
+#
+#rke_state: "/opt/zoomint/kubernetes/cluster.rkestate"
+#
+#kubernetes_config: "/opt/zoomint/kubernetes/kube_config_cluster.yml"
+#
+#postgresql_pgdata_path: "/mnt"
+#
+## POSTRESQL ZALANDO OPERATOR
+#postgresql_team: "kubernetes"
+#postgresql_name: "postgresql"
+#postgresql_namespace: "default"
+#postgresql_volsize: 3Gi
+#postgresql_mlb: false
+#postgresql_rlb: false
+#postgresql_connpooler: false
+#postgresql_reqcpu: 100m
+#postgresql_reqmem: 100Mi
+#postgresql_limcpu: 500m
+#postgresql_limmem: 500Mi

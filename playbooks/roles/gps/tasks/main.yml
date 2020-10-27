@@ -1,0 +1,8 @@
+---
+- name: copy gps_on_off
+  copy:
+    src: gps_on_off
+    dest: /usr/local/bin/gps_on_off
+    owner: root
+    group: root
+    mode: 0755

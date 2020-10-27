@@ -1,0 +1,14 @@
+#!/bin/bash
+
+usage() {
+cat <<EOF
+USAGE:
+    $0 (on|off)
+EOF
+exit 2
+}
+
+[[ "$1" != "on" ]] && [[ "$1" != "off" ]] && usage
+
+[[ "$1" == "on" ]] && /bin/sed -i 's|^enabled=false|enabled=true|' /etc/location/location.conf
+[[ "$1" == "off" ]] && /bin/sed -i 's|^enabled=true|enabled=false|' /etc/location/location.conf

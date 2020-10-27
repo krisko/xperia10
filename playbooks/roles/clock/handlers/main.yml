@@ -1,0 +1,5 @@
+---
+- name: restart ngfd
+  command: killall -s HUP ngfd
+  become: yes
+  become_user: nemo
