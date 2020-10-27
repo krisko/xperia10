@@ -7,7 +7,7 @@
     group: root
     mode: 0755
 
-- name: change permissions for gps location.conf
+- name: change owner for gps location.conf
   file:
     path: /etc/location/location.conf
     owner: "nemo"
