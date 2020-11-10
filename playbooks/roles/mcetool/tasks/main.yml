@@ -1,0 +1,16 @@
+---
+- name: get Autosuspend Policy value
+  shell: mcetool --status | sed -ne "/Autosuspend policy:\s\+/s///p"
+  register: mcetool_autosuspend_policy
+
+- name: set Autosuspend Policy value
+  shell: mcetool --set-suspend-policy=early
+  when: mcetool_autosuspend_policy.stdout | trim != "early"
+
+- name: get Scaling Governor value
+  shell: mcetool --status | sed -ne "/CPU Scaling Governor:\s\+/s///p"
+  register: mcetool_scaling_governor
+
+- name: set Scaling Governor value
+  shell: mcetool --set-cpu-scaling-governor=automatic
+  when: mcetool_scaling_governor.stdout | trim != "automatic"

@@ -5,3 +5,4 @@
     - role: roles/clock
     - role: roles/gps
     - role: roles/camera
+    - role: roles/mcetool

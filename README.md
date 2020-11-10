@@ -26,4 +26,7 @@ ansible-playbook -i inventory/hosts.yml playbooks/xperia.yml
   - copy gps_on_off script to disable/enable gps (used in situations app)
 # camera
   - set advanced-camera as default camera from lockscreen
+# mcetool
+  - set CPU Scaling Governor to automatic
+  - set Autosuspend policy to early (this doubled my battery life)
 ```
